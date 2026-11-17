@@ -1,0 +1,665 @@
+/* Paleta de cores compartilhada pelos componentes da página. */
+:root {
+  --bg: #0b1325;
+  --panel: #14213a;
+  --panel2: #1a2a45;
+  --orange: #ff9a38;
+  --text: #f6f8fc;
+  --muted: #bdc9dc;
+  --line: #30415e;
+}
+
+/* Dimensões, fonte e comportamento de rolagem da página. */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial,Helvetica,sans-serif;
+}
+a {
+  color: inherit;
+}
+button {
+  font: inherit;
+}
+
+/* Degradê do cabeçalho e largura da área principal. */
+header {
+  background: linear-gradient(120deg,#11213a,#203b5a);
+  padding: 24px max(5%,calc((100% - 1100px)/2)) 64px;
+}
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px 82px;
+}
+
+/* Títulos, rótulos e tipografia dos parágrafos. */
+.eyebrow {
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 16px;
+  font-weight: 800;
+}
+h1 {
+  font-size: clamp(36px,6vw,66px);
+  line-height: 1.08;
+  margin: 12px 0 20px;
+  max-width: 1020px;
+}
+h2 {
+  font-size: clamp(24px,3vw,34px);
+  margin: 0 0 16px;
+}
+h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+.accent {
+  color: var(--orange);
+}
+p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 17px;
+  max-width: 780px;
+}
+header p {
+  font-size: 19px;
+  max-width: 810px;
+}
+
+/* Apresentação do curso e destaque dos exercícios resolvidos. */
+.hero-description {
+  max-width: 940px;
+}
+.hero-description p {
+  max-width: 920px;
+  font-size: 17px;
+  margin: 0 0 13px;
+  line-height: 1.65;
+}
+.hero-description strong {
+  color: #f6f8fc;
+}
+.hero-description .hero-lead {
+  font-size: clamp(20px,2.5vw,26px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.hero-description .hero-highlight {
+  border-left: 4px solid var(--orange);
+  padding: 10px 18px;
+  margin: 19px 0;
+  background: rgba(255,154,56,.07);
+  color: var(--orange);
+  border-radius: 0 8px 8px 0;
+}
+.hero-description .hero-highlight strong {
+  color: var(--orange);
+}
+
+/* Disposição dos botões e aparência dos controles principais. */
+.hero-actions {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.btn {
+  background: var(--orange);
+  border: 2px solid var(--orange);
+  color: #13213a;
+  border-radius: 12px;
+  min-height: 59px;
+  min-width: 235px;
+  padding: 17px 28px;
+  font-weight: 800;
+  font-size: 17px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter .15s,transform .15s;
+}
+.btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.outline {
+  border: 2px solid var(--orange);
+  color: var(--orange);
+  background: transparent;
+  border-radius: 12px;
+  min-height: 59px;
+  min-width: 235px;
+  padding: 16px 26px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.outline:hover,.outline:focus-visible {
+  background: rgba(255,154,56,.1);
+}
+
+/* Painel do professor, com sinais de mais e menos conforme o estado da aba. */
+.professor-area {
+  max-width: 740px;
+  width: 100%;
+  flex: 1;
+  min-width: 260px;
+}
+.professor-details {
+  border: 0;
+  background: transparent;
+}
+.professor-details summary {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+.professor-details summary::-webkit-details-marker {
+  display: none;
+}
+.professor-details .outline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.professor-details .outline > .aba-simbolo {
+  flex-shrink: 0;
+  font-size: 22px;
+  line-height: 1;
+}
+/* Alterna os símbolos do HTML conforme a aba esteja aberta ou fechada. */
+details:not([open]) > summary .aba-simbolo-fechar,
+details[open] > summary .aba-simbolo-abrir {
+  display: none;
+}
+.professor-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-top: 18px;
+  padding: 24px;
+}
+.professor-card p {
+  font-size: 15px;
+  margin: 10px 0;
+}
+.professor-card h3 {
+  color: white;
+}
+
+/* Grade de cartões e listas de público e de áreas do curso. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 22px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 27px;
+  border-radius: 17px;
+}
+.card p {
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.audience {
+  list-style: none;
+  padding: 0;
+  margin: 17px 0 0;
+  display: grid;
+  gap: 11px;
+}
+.audience li {
+  color: var(--orange);
+  font-weight: 800;
+  line-height: 1.45;
+  position: relative;
+  padding-left: 15px;
+}
+.course-areas {
+  margin: 17px 0 0;
+  padding-left: 27px;
+  color: var(--orange);
+  font-weight: 800;
+  line-height: 1.6;
+}
+.course-areas li {
+  padding: 7px 0 7px 3px;
+}
+.audience .audience-marker {
+  color: var(--orange);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Espaçamento e elementos compartilhados pelas seções. */
+section {
+  margin-bottom: 55px;
+}
+.section-kicker {
+  margin-bottom: 8px;
+}
+.features {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.number {
+  color: var(--orange);
+  font-weight: 800;
+  letter-spacing: .04em;
+  margin-bottom: 14px;
+}
+.feature p {
+  margin: 0;
+}
+
+/* Estilos dos painéis expansíveis e das listas internas. */
+.details-list {
+  display: grid;
+  gap: 12px;
+}
+.details-list details {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.details-list summary {
+  list-style: none;
+  padding: 21px 24px;
+  cursor: pointer;
+  font-weight: 800;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.details-list summary::-webkit-details-marker {
+  display: none;
+}
+.details-list details[open] summary {
+  color: var(--orange);
+  border-bottom: 1px solid var(--line);
+}
+.details-content {
+  padding: 16px 24px 20px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+.details-content ol {
+  margin: 0;
+  padding-left: 24px;
+}
+.details-content li {
+  padding: 6px 0;
+}
+.notice {
+  border-left: 3px solid var(--orange);
+  background: var(--panel);
+  padding: 18px 22px;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* Área de matrícula e mensagem sobre o link de acesso. */
+.cta {
+  background: linear-gradient(115deg,#203955,#14253e);
+  padding: 36px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 60px;
+}
+.cta p {
+  margin: 0 auto 25px;
+}
+.cta .btn {
+  min-width: 285px;
+}
+.micro {
+  font-size: 13px;
+  color: #a9b8cd;
+  margin-top: 13px;
+}
+.hidden {
+  display: none;
+}
+
+/* Rodapé e contorno de foco para navegação por teclado. */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px;
+  text-align: center;
+  color: #9aaac1;
+  font-size: 14px;
+}
+a:focus-visible,button:focus-visible,summary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+
+/* Ajusta o cabeçalho, os botões e a grade para telas estreitas. */
+@media (max-width: 760px) {
+  header {
+    padding: 24px 20px 50px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .professor-area {
+    max-width: none;
+    min-width: 0;
+  }
+  .professor-details summary {
+    justify-content: center;
+  }
+  .professor-details .outline {
+    width: 100%;
+    min-width: 0;
+  }
+  .btn {
+    width: 100%;
+  }
+  .grid,.features {
+    grid-template-columns: 1fr;
+  }
+  main {
+    padding: 35px 16px 65px;
+  }
+  .cta {
+    padding: 28px 18px;
+  }
+  .cta .btn {
+    min-width: 0;
+  }
+}
+
+/* Apresentação dos itens de Integrais e destaque dos subtítulos. */
+.static-plus-item {
+  list-style: none;
+  margin: 10px 0 10px 0;
+  padding-left: 0;
+  position: relative;
+  color: #f2f4f8;
+  font-weight: 600;
+}
+.static-plus-item .highlight-subtopic {
+  color: #f39c12;
+  font-weight: 800;
+}
+/* Alinha os três tópicos de Integrais à mesma margem esquerda do título. */
+.course-area-subtopics.integrais-alinhados {
+  padding-left: 0;
+  margin-left: 0;
+}
+.course-area-subtopics.integrais-alinhados > li {
+  margin-left: 0;
+  padding-left: 0;
+}
+/* Menu expansível da primeira área do curso, preservando a numeração externa. */
+.course-area-dropdown {
+  color: var(--orange);
+}
+.course-area-dropdown > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.course-area-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+.course-area-dropdown > summary > .aba-simbolo {
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--orange);
+}
+.course-area-dropdown > summary:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.course-area-subtopics {
+  padding: 9px 0 4px 17px;
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.55;
+  list-style: disc;
+  border-top: 1px solid var(--line);
+}
+.course-area-subtopics li {
+  padding: 8px 0;
+}
+/* Segundo nível do menu: abre as 20 aulas apenas quando o visitante clica. */
+.course-area-subtopics .course-subtopic-expandable {
+  list-style: none;
+  margin-left: -17px;
+  padding-left: 0;
+}
+.lesson-dropdown {
+  width: 100%;
+}
+.highlight-subtopic {
+  color: var(--orange);
+  font-weight: 800;
+}
+.lesson-dropdown > summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.lesson-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+.lesson-dropdown > summary > .aba-simbolo {
+  color: var(--orange);
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.lesson-dropdown[open] > summary {
+  color: var(--orange);
+}
+.lesson-items {
+  color: var(--muted);
+  list-style: decimal-leading-zero;
+  padding: 10px 0 4px 35px;
+  margin: 10px 0 0 4px;
+  border-left: 2px solid var(--orange);
+  line-height: 1.5;
+  font-size: 13px;
+  font-weight: 400;
+}
+.lesson-items li {
+  padding: 7px 0 7px 3px;
+  overflow-wrap: anywhere;
+}
+.lesson-items li::marker {
+  color: var(--orange);
+  font-weight: 700;
+}
+/* Segundo nível expansível em Integrais; evita recuo do texto. */
+.integrais-alinhados > .integrais-submenu {
+  margin-left: 0;
+  padding-left: 0;
+}
+.integrais-submenu .lesson-dropdown > summary {
+  color: var(--text);
+}
+.integrais-submenu .lesson-dropdown[open] > summary {
+  color: var(--text);
+}
+.integrais-submenu .lesson-items {
+  margin-left: 0;
+}
+/* Apresentação da proposta em menu expansível. */
+.proposta-expandivel {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.proposta-expandivel > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 24px 28px;
+  color: var(--orange);
+  font-size: 21px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.proposta-expandivel > summary::-webkit-details-marker {
+  display: none;
+}
+.proposta-expandivel > summary > .aba-simbolo {
+  font-size: 28px;
+  line-height: 1;
+}
+.proposta-expandivel > summary:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: -3px;
+}
+.proposta-texto {
+  padding: 8px 28px 27px;
+  border-top: 1px solid var(--line);
+}
+.proposta-texto p {
+  max-width: 950px;
+  line-height: 1.75;
+  margin: 16px 0;
+  color: var(--text);
+}
+.proposta-texto .proposta-nome {
+  color: var(--orange);
+  letter-spacing: .2px;
+}
+@media (max-width: 760px) {
+  .proposta-expandivel > summary {
+    padding: 20px;
+    font-size: 18px;
+  }
+  .proposta-texto {
+    padding: 6px 20px 22px;
+  }
+}
+/* Mantém a borda e o espaçamento próprios da lista de orientações. */
+.details-content.orientacoes-conteudo {
+  border-top: 1px solid var(--line);
+  padding: 20px 28px 26px;
+}
+/* Mantém o botão de contato fixo no canto inferior direito. */
+.contact-widget {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 10;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+}
+.contact-widget > summary {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, .35);
+  color: var(--bg);
+  cursor: pointer;
+  list-style: none;
+  place-items: center;
+  transition: transform .15s ease, filter .15s ease;
+}
+.contact-widget > summary::-webkit-details-marker {
+  display: none;
+}
+.contact-widget > summary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+.contact-widget > summary:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 4px;
+}
+.contact-icon {
+  position: relative;
+  width: 25px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+}
+.contact-icon::after {
+  position: absolute;
+  bottom: -5px;
+  left: 4px;
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  background: var(--orange);
+  content: "";
+  transform: skewY(-40deg);
+}
+.contact-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: min(300px, calc(100vw - 32px));
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, .4);
+}
+.contact-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+}
+.contact-panel dl {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+.contact-panel dt {
+  color: var(--orange);
+  font-weight: 800;
+}
+.contact-panel dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
