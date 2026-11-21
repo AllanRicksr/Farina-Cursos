@@ -34,8 +34,6 @@ header {
   background: linear-gradient(120deg,#11213a,#203b5a);
   padding: 24px max(5%,calc((100% - 1100px)/2)) 64px;
 }
-<<<<<<< HEAD
-=======
 .home-button {
   display: inline-flex;
   align-items: center;
@@ -54,7 +52,6 @@ header {
 .home-button:hover,.home-button:focus-visible {
   background: rgba(255,154,56,.1);
 }
->>>>>>> 0497cff (Adicionando chekout e valores)
 main {
   max-width: 1100px;
   margin: 0 auto;
@@ -63,13 +60,10 @@ main {
 
 /* Títulos, rótulos e tipografia dos parágrafos. */
 .eyebrow {
-<<<<<<< HEAD
-=======
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
->>>>>>> 0497cff (Adicionando chekout e valores)
   color: var(--orange);
   text-transform: uppercase;
   letter-spacing: .12em;
