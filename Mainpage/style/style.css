@@ -86,11 +86,14 @@ body {
 
 .course-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
 .course-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -112,8 +115,37 @@ body {
   object-fit: cover;
 }
 
+.course-placeholder {
+  display: grid;
+  min-height: 230px;
+  align-content: center;
+  justify-items: center;
+  background:
+    radial-gradient(circle at center, rgba(255, 154, 56, .18), transparent 58%),
+    rgba(7, 15, 29, .38);
+  color: var(--orange);
+}
+
+.course-placeholder span {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  line-height: 1;
+  place-items: center;
+}
+
+.course-placeholder p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
 .course-card-text {
   display: flex;
+  flex: 1;
   min-height: 240px;
   flex-direction: column;
   align-items: flex-start;
@@ -263,6 +295,10 @@ body {
   font-size: .9rem;
 }
 
+.contact-panel dd a {
+  color: inherit;
+}
+
 @media (max-width: 700px) {
   .hero {
     padding-top: 72px;
@@ -276,12 +312,20 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .course-image {
+  .course-image,
+  .course-placeholder {
     height: 200px;
+    min-height: 200px;
   }
 
   .course-card-text {
     min-height: 0;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .course-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
